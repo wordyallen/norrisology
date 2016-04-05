@@ -6,7 +6,7 @@ const QuoteBox = React.createClass({
     }
   },
   getQuote(){
-    const api =fetch('http://api.icndb.com/jokes/random').
+    const api =fetch('http://api.icndb.com/jokes/random',{mode:'no-cors'}).
       then((res)=> res.json()).then((json)=>  json.value.joke.replace(/&quot;/g, '\"'))
     api.then((quote)=> this.setState({quote: quote}))
   },
